@@ -86,7 +86,7 @@ available_metrics = [
 selected_metrics = st.sidebar.multiselect(
     "Select Metrics to Display",
     available_metrics,
-    default=["Failure Rate"],  # Default to showing failure rate
+    default=["Failure Rate","Support Ticket Count","Sentiment Score"],  # Default to showing failure rate
     help="Select one or more metrics to display on the map. Multiple metrics will be overlaid."
 )
 
@@ -785,11 +785,11 @@ st.subheader("🗺️ Multi-Metric Geospatial Analysis")
 # Always render the main visualization using H3HexagonLayers
 st.pydeck_chart(
     pdk.Deck(
-        map_style="mapbox://styles/mapbox/light-v9", 
+        map_style="mapbox://styles/mapbox/light-v8", 
         initial_view_state=pdk.ViewState(
             latitude=center_lat,
             longitude=center_lon,
-            zoom=5, 
+            zoom=6, 
             pitch=45 if any(metric == height_metric for metric in selected_metrics) else 0,
             bearing=0,
             height=600  

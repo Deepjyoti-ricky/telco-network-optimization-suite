@@ -19,32 +19,31 @@ session = init_session()
 # Main page content
 st.title("📡 Telco Network Optimization Suite")
 st.markdown("""
-### Welcome to the Telco Network Optimization Dashboard
+### Solve Your Toughest Network Challenges
+Today's telco operations are overwhelmed by vast network data, customer complaints, and sprawling infrastructure. Our Telco Network Optimization Suite cuts through the noise to deliver clarity and action.
+#### We solve your core problems by providing:
+- **Rapid Insight**: Instantly pinpoint cell towers driving the most trouble tickets.
+- **Proactive Monitoring**: Visualize live customer sentiment and ticket-density hotbeds with dynamic heatmaps.
+- **Actionable Analytics**: Directly correlate network performance metrics with real-time customer complaints.
+- **Reduced MTTR (Mean Time To Resolution)**: Quickly identify root causes of issues and accelerate problem-solving.
+- **Enhanced Customer Satisfaction**: Address issues proactively and improve service quality based on real-time feedback.
+- **Optimized Network Spend**: Intelligently allocate resources to areas of highest impact, avoiding unnecessary infrastructure upgrades.
+- **Future-Proof Scalability**: Built on Snowflake, this solution scales effortlessly with your growing data volumes and network demands.
 
-This application provides interactive visualizations and analytics to help identify 
-and prioritize network issues that impact customer satisfaction.
+All this is powered by Snowflake's elastic data platform and a user-friendly Streamlit front-end, requiring no bespoke coding. Get the intelligence you need to prioritize, optimize, and ensure operational excellence.
+
 
 Use the sidebar to navigate between different analysis views.
 """)
 
+st.image(
+    "https://quickstarts.snowflake.com/guide/optimizing-network-operations-with-cortex-ai-call-transcripts-and-tower-data-analysis/img/dad88af756439cbf.png",
+    caption="Optimizing Network Operations with Cortex AI", 
+    width=1000
+)
+
 # Display some key network stats on the home page
 st.markdown("""
-## Available Analysis Tools
-
-- **Cell Tower Lookup**: Examine individual cell tower performance metrics
-- **Geospatial Analysis**: Visualize network metrics and support ticket data on maps
-- **Correlation Analytics**: Discover relationships between network metrics and customer experience
-- **Customer Impact Dashboard TBC**: Correlate technical metrics with customer complaints
-- **Loyalty Status Impact View TBC**: Analyze how network issues affect customers by loyalty tier
-- **Time-Series Analysis TBC**: Track performance metrics over time to identify patterns
-- **Service Type Performance Breakdown TBC**: Compare metrics across different service offerings
-- **Issue Prioritization Matrix TBC**: Identify high-impact, easy-to-fix network issues
-- **Problematic Cell Towers TBC**: Identify and diagnose towers with technical or customer issues
-- **Proactive Network Adjustments TBC**: Monitor trends to detect issues before they affect customers
-- **Capacity Planning TBC**: Identify areas needing infrastructure upgrades or expansion
-- **Root Cause Analysis for Complaints TBC**: Link customer complaints to network performance issues
-- **Data Integration and Quality TBC**: Ensure data accuracy and reliability for decision-making
-
 ### Getting Started
 Select a page from the sidebar to begin your analysis.
 """)
@@ -54,7 +53,7 @@ col1, col2, col3 = st.columns(3)
 
 # Count of cell towers
 total_cells = session.sql("""
-    SELECT COUNT(DISTINCT cell_id) as total_cells 
+    SELECT COUNT(DISTINCT cell_id) as total_cells
     FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.CELL_TOWER
 """).collect()[0]["TOTAL_CELLS"]
 
@@ -66,7 +65,7 @@ avg_failure = session.sql("""
 
 # Count of support tickets
 ticket_count = session.sql("""
-    SELECT COUNT(*) as ticket_count 
+    SELECT COUNT(*) as ticket_count
     FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.SUPPORT_TICKETS
 """).collect()[0]["TICKET_COUNT"]
 

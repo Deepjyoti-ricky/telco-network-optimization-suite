@@ -1,0 +1,55 @@
+# Streamlit in Snowflake - Available Packages (No Installation Required)
+
+# Core Data Science & Visualization
+streamlit                 # Web app framework (built-in)
+pandas                    # Data manipulation 
+numpy                     # Numerical computing
+plotly                    # Interactive plotting
+matplotlib                # Static plotting
+altair                    # Declarative visualization
+pydeck                    # WebGL-powered visualizations
+
+# Snowflake Integration
+snowflake-snowpark-python # Native Snowflake integration (built-in)
+snowflake.cortex          # AI/ML capabilities (built-in)
+
+# Scientific Computing
+scipy                     # Scientific computing
+scikit-learn             # Machine learning
+
+# Geographic & Mapping
+branca                    # Color mapping utilities
+
+# Date/Time Processing
+datetime                  # Date and time handling
+dateutil                 # Date parsing utilities
+
+# Web & API
+requests                  # HTTP library
+urllib                    # URL handling
+
+# Data Processing
+json                      # JSON handling
+csv                       # CSV file handling
+io                        # Input/output utilities
+
+# System & Utilities
+os                        # Operating system interface
+sys                       # System parameters
+pathlib                   # Object-oriented filesystem paths
+
+# ALL PACKAGES ARE PRE-INSTALLED IN STREAMLIT IN SNOWFLAKE
+# NO requirements.txt OR pip install NEEDED!
+
+# Your telco network optimization suite uses:
+# ✅ streamlit - for the web interface
+# ✅ pandas - for data manipulation  
+# ✅ plotly - for interactive charts
+# ✅ matplotlib - for static charts
+# ✅ pydeck - for map visualizations
+# ✅ snowflake.snowpark - for database connections
+# ✅ snowflake.cortex - for AI-powered insights
+# ✅ numpy - for numerical calculations
+# ✅ datetime - for timestamp handling
+
+# All these packages work out-of-the-box in Streamlit in Snowflake!

@@ -1,0 +1,11 @@
+plan_id,plan_name,service_type,monthly_fee,data_gb,minutes,texts,speed_mbps,data_limit,channels,hd_channels
+PLAN_001,Basic Mobile,Mobile,35.99,5,500,Unlimited,,,,
+PLAN_002,Premium Mobile,Mobile,55.99,25,Unlimited,Unlimited,,,,
+PLAN_003,Ultimate Mobile,Mobile,85.99,Unlimited,Unlimited,Unlimited,,,,
+PLAN_004,Home Internet Basic,Internet,49.99,,,,100.0,Unlimited,,
+PLAN_005,Home Internet Pro,Internet,69.99,,,,300.0,Unlimited,,
+PLAN_006,Home Internet Gigabit,Internet,99.99,,,,1000.0,Unlimited,,
+PLAN_007,Basic TV,TV,39.99,,,,,,100.0,50.0
+PLAN_008,Premium TV,TV,79.99,,,,,,250.0,150.0
+PLAN_009,Business Mobile,Mobile,45.99,20,Unlimited,Unlimited,,,,
+PLAN_010,Business Internet,Internet,129.99,,,,500.0,Unlimited,,
