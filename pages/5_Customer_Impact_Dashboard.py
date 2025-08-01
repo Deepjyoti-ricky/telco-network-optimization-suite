@@ -308,42 +308,42 @@ if not customer_impact.empty and not customer_impact[['latitude', 'longitude']].
 else:
     st.info("Geographic data not available for mapping")
 
-# Issue Priority Analysis
-st.markdown("## ⚠️ Issue Priority & Resolution Analysis")
+# Service Type Analysis
+st.markdown("## 📞 Service Type & Contact Preference Analysis")
 
-if not customer_impact.empty and 'priority' in customer_impact.columns:
+if not customer_impact.empty and 'service_type' in customer_impact.columns:
     col1, col2 = st.columns(2)
     
     with col1:
-        # Priority distribution by loyalty tier
-        priority_analysis = customer_impact.groupby(['status', 'priority']).size().reset_index(name='count')
+        # Service type distribution by loyalty tier
+        service_analysis = customer_impact.groupby(['status', 'service_type']).size().reset_index(name='count')
         
-        fig_priority = px.bar(
-            priority_analysis,
-            x='priority',
+        fig_service = px.bar(
+            service_analysis,
+            x='service_type',
             y='count',
             color='status',
-            title='Issue Priority Distribution by Loyalty Tier',
+            title='Service Type Distribution by Loyalty Tier',
             barmode='group',
             color_discrete_map={'Gold': '#FFD700', 'Silver': '#C0C0C0', 'Bronze': '#CD7F32'}
         )
-        st.plotly_chart(fig_priority, use_container_width=True)
+        st.plotly_chart(fig_service, use_container_width=True)
     
     with col2:
-        # Resolution status analysis
-        if 'ticket_status' in customer_impact.columns:
-            resolution_analysis = customer_impact.groupby(['status', 'ticket_status']).size().reset_index(name='count')
+        # Contact preference analysis
+        if 'contact_preference' in customer_impact.columns:
+            contact_analysis = customer_impact.groupby(['status', 'contact_preference']).size().reset_index(name='count')
             
-            fig_resolution = px.bar(
-                resolution_analysis,
-                x='ticket_status',
+            fig_contact = px.bar(
+                contact_analysis,
+                x='contact_preference',
                 y='count',
                 color='status',
-                title='Ticket Resolution Status by Loyalty Tier',
+                title='Contact Preference by Loyalty Tier',
                 barmode='group',
                 color_discrete_map={'Gold': '#FFD700', 'Silver': '#C0C0C0', 'Bronze': '#CD7F32'}
             )
-            st.plotly_chart(fig_resolution, use_container_width=True)
+            st.plotly_chart(fig_contact, use_container_width=True)
 
 # Action Items and Recommendations
 st.markdown("## 🎯 Recommendations & Action Items")
