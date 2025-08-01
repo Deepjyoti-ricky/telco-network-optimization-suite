@@ -54,9 +54,6 @@ def load_loyalty_data():
         phone_number,
         status,
         points,
-        tier_start_date,
-        tier_end_date,
-        DATEDIFF(day, tier_start_date, CURRENT_DATE()) as days_in_tier,
         CASE 
             WHEN status = 'Gold' THEN 1000
             WHEN status = 'Silver' THEN 500  

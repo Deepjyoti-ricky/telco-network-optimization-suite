@@ -50,8 +50,12 @@ def load_customer_loyalty():
         phone_number,
         status,
         points,
-        tier_start_date,
-        tier_end_date
+        CASE 
+            WHEN status = 'Gold' THEN 1000
+            WHEN status = 'Silver' THEN 500  
+            WHEN status = 'Bronze' THEN 200
+            ELSE 100
+        END as estimated_monthly_value
     FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.CUSTOMER_LOYALTY
     """
     df = session.sql(query).to_pandas()
