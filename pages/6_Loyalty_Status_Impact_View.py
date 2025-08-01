@@ -73,20 +73,12 @@ def load_support_data():
     SELECT 
         ticket_id,
         cell_id,
-        customer_id,
+        customer_name,
+        customer_email,
         service_type,
-        issue_description,
-        priority,
-        status as ticket_status,
         sentiment_score,
-        created_date,
-        resolved_date,
         request,
-        CASE 
-            WHEN resolved_date IS NOT NULL AND created_date IS NOT NULL 
-            THEN DATEDIFF(hour, created_date, resolved_date)
-            ELSE NULL 
-        END as resolution_hours
+        contact_preference
     FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.SUPPORT_TICKETS
     """
     df = session.sql(query).to_pandas()

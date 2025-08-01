@@ -76,17 +76,11 @@ def load_service_performance_data():
             st.service_type,
             st.ticket_id,
             st.cell_id,
-            st.customer_id,
-            st.priority,
-            st.status as ticket_status,
+            st.customer_name,
+            st.customer_email,
             st.sentiment_score,
-            st.created_date,
-            st.resolved_date,
-            CASE 
-                WHEN st.resolved_date IS NOT NULL AND st.created_date IS NOT NULL 
-                THEN DATEDIFF(hour, st.created_date, st.resolved_date)
-                ELSE NULL 
-            END as resolution_hours,
+            st.request,
+            st.contact_preference,
             cl.status as loyalty_status,
             cl.points as loyalty_points,
             ct.call_release_code,
@@ -95,7 +89,7 @@ def load_service_performance_data():
             ct.msisdn
         FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.SUPPORT_TICKETS st
         LEFT JOIN TELCO_NETWORK_OPTIMIZATION_PROD.RAW.CUSTOMER_LOYALTY cl 
-            ON st.customer_id = cl.phone_number
+            ON st.customer_email = cl.phone_number
         LEFT JOIN TELCO_NETWORK_OPTIMIZATION_PROD.RAW.CELL_TOWER ct 
             ON st.cell_id = ct.cell_id
     )

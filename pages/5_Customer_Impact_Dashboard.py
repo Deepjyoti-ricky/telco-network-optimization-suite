@@ -69,15 +69,12 @@ def load_support_tickets():
     SELECT 
         ticket_id,
         cell_id,
-        customer_id,
+        customer_name,
+        customer_email,
         service_type,
-        issue_description,
-        priority,
-        status as ticket_status,
         sentiment_score,
-        created_date,
-        resolved_date,
-        request
+        request,
+        contact_preference
     FROM TELCO_NETWORK_OPTIMIZATION_PROD.RAW.SUPPORT_TICKETS
     """
     df = session.sql(query).to_pandas()
